@@ -1,0 +1,344 @@
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop$ cd Docker/
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker$ ls
+App-01  App-02  App-03  App-04
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker$ cd App-04
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ ls
+Dockerfile
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker images
+REPOSITORY                 TAG                IMAGE ID       CREATED             SIZE
+<none>                     <none>             25f25944d9f1   10 minutes ago      215MB
+mynode                     harsha_nodejs     702ee6253946   About an hour ago   215MB
+mypython                   hello              d57ce9ce2908   45 hours ago        50MB
+ubuntu                     vim                49a6d3ddc7f8   46 hours ago        161MB
+pranalimaraskolhe/ubuntu   vim                49a6d3ddc7f8   46 hours ago        161MB
+ubuntu                     nano               ba7bc79d0969   47 hours ago        161MB
+ubuntu                     harsha240122.04   d01122d1f155   2 days ago          161MB
+ubuntu                     diot240322.04      809654faf4fa   2 days ago          132MB
+ubuntu                     latest             35a88802559d   3 weeks ago         78.1MB
+<none>                     <none>             37984cb52039   4 weeks ago         77.9MB
+hello-world                latest             d2c94e258dcb   14 months ago       13.3kB
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker container
+
+Usage:  docker container COMMAND
+
+Manage containers
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  exec        Execute a command in a running container
+  export      Export a container's filesystem as a tar archive
+  inspect     Display detailed information on one or more containers
+  kill        Kill one or more running containers
+  logs        Fetch the logs of a container
+  ls          List containers
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  prune       Remove all stopped containers
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  run         Create and run a new container from an image
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker container COMMAND --help' for more information on a command.
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker container ls 
+CONTAINER ID   IMAGE                   COMMAND   CREATED          STATUS          PORTS     NAMES
+1907891995c1   mynode:pranali_nodejs   "bash"    23 minutes ago   Up 21 minutes             laughing_maxwell
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker container ls | head -4
+CONTAINER ID   IMAGE                   COMMAND   CREATED          STATUS          PORTS     NAMES
+1907891995c1   mynode:pranali_nodejs   "bash"    23 minutes ago   Up 21 minutes             laughing_maxwell
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker start
+"docker start" requires at least 1 argument.
+See 'docker start --help'.
+
+Usage:  docker start [OPTIONS] CONTAINER [CONTAINER...]
+
+Start one or more stopped containers
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker start 1907891995c1
+1907891995c1
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker exec -it 1907891995c1 bash
+root@1907891995c1:/# 
+root@1907891995c1:/# 
+root@1907891995c1:/# 
+root@1907891995c1:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@1907891995c1:/# cd home
+root@1907891995c1:/home# ls
+root@1907891995c1:/home# cd ..
+root@1907891995c1:/# cd tmp
+root@1907891995c1:/tmp# ls
+root@1907891995c1:/tmp# cd ..
+root@1907891995c1:/# 
+root@1907891995c1:/# 
+root@1907891995c1:/# ls         
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@1907891995c1:/# ls -a
+.  ..  .dockerenv  bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@1907891995c1:/# mkdir Python3
+root@1907891995c1:/# ls 
+Python3  bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@1907891995c1:/# cd Python3
+root@1907891995c1:/Python3# vim Hello.py
+bash: vim: command not found
+root@1907891995c1:/Python3# apt install vim
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libexpat1 libgpm2 libmpdec3 libpython3.10 libpython3.10-minimal libpython3.10-stdlib libreadline8 libsodium23 libsqlite3-0 media-types readline-common vim-common vim-runtime xxd
+Suggested packages:
+  gpm readline-doc ctags vim-doc vim-scripts
+The following NEW packages will be installed:
+  libexpat1 libgpm2 libmpdec3 libpython3.10 libpython3.10-minimal libpython3.10-stdlib libreadline8 libsodium23 libsqlite3-0 media-types readline-common vim vim-common vim-runtime xxd
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 14.5 MB of archives.
+After this operation, 61.2 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libexpat1 amd64 2.4.7-1ubuntu0.3 [91.0 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy/main amd64 libmpdec3 amd64 2.5.1-2build2 [86.8 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-minimal amd64 3.10.12-1~22.04.3 [812 kB]
+Get:4 http://archive.ubuntu.com/ubuntu jammy/main amd64 media-types all 7.0.0 [25.5 kB]
+Get:5 http://archive.ubuntu.com/ubuntu jammy/main amd64 readline-common all 8.1.2-1 [53.5 kB]
+Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 libreadline8 amd64 8.1.2-1 [153 kB]
+Get:7 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libsqlite3-0 amd64 3.37.2-2ubuntu0.3 [641 kB]
+Get:8 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10-stdlib amd64 3.10.12-1~22.04.3 [1848 kB]
+Get:9 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 xxd amd64 2:8.2.3995-1ubuntu2.17 [53.7 kB]
+Get:10 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-common all 2:8.2.3995-1ubuntu2.17 [81.5 kB]
+Get:11 http://archive.ubuntu.com/ubuntu jammy/main amd64 libgpm2 amd64 1.20.7-10build1 [15.3 kB]
+Get:12 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3.10 amd64 3.10.12-1~22.04.3 [1948 kB]
+Get:13 http://archive.ubuntu.com/ubuntu jammy/main amd64 libsodium23 amd64 1.0.18-1build2 [164 kB]
+Get:14 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim-runtime all 2:8.2.3995-1ubuntu2.17 [6827 kB]
+Get:15 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 vim amd64 2:8.2.3995-1ubuntu2.17 [1734 kB]
+Fetched 14.5 MB in 2s (6500 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package libexpat1:amd64.
+(Reading database ... 5268 files and directories currently installed.)
+Preparing to unpack .../00-libexpat1_2.4.7-1ubuntu0.3_amd64.deb ...
+Unpacking libexpat1:amd64 (2.4.7-1ubuntu0.3) ...
+Selecting previously unselected package libmpdec3:amd64.
+Preparing to unpack .../01-libmpdec3_2.5.1-2build2_amd64.deb ...
+Unpacking libmpdec3:amd64 (2.5.1-2build2) ...
+Selecting previously unselected package libpython3.10-minimal:amd64.
+Preparing to unpack .../02-libpython3.10-minimal_3.10.12-1~22.04.3_amd64.deb ...
+Unpacking libpython3.10-minimal:amd64 (3.10.12-1~22.04.3) ...
+Selecting previously unselected package media-types.
+Preparing to unpack .../03-media-types_7.0.0_all.deb ...
+Unpacking media-types (7.0.0) ...
+Selecting previously unselected package readline-common.
+Preparing to unpack .../04-readline-common_8.1.2-1_all.deb ...
+Unpacking readline-common (8.1.2-1) ...
+Selecting previously unselected package libreadline8:amd64.
+Preparing to unpack .../05-libreadline8_8.1.2-1_amd64.deb ...
+Unpacking libreadline8:amd64 (8.1.2-1) ...
+Selecting previously unselected package libsqlite3-0:amd64.
+Preparing to unpack .../06-libsqlite3-0_3.37.2-2ubuntu0.3_amd64.deb ...
+Unpacking libsqlite3-0:amd64 (3.37.2-2ubuntu0.3) ...
+Selecting previously unselected package libpython3.10-stdlib:amd64.
+Preparing to unpack .../07-libpython3.10-stdlib_3.10.12-1~22.04.3_amd64.deb ...
+Unpacking libpython3.10-stdlib:amd64 (3.10.12-1~22.04.3) ...
+Selecting previously unselected package xxd.
+Preparing to unpack .../08-xxd_2%3a8.2.3995-1ubuntu2.17_amd64.deb ...
+Unpacking xxd (2:8.2.3995-1ubuntu2.17) ...
+Selecting previously unselected package vim-common.
+Preparing to unpack .../09-vim-common_2%3a8.2.3995-1ubuntu2.17_all.deb ...
+Unpacking vim-common (2:8.2.3995-1ubuntu2.17) ...
+Selecting previously unselected package libgpm2:amd64.
+Preparing to unpack .../10-libgpm2_1.20.7-10build1_amd64.deb ...
+Unpacking libgpm2:amd64 (1.20.7-10build1) ...
+Selecting previously unselected package libpython3.10:amd64.
+Preparing to unpack .../11-libpython3.10_3.10.12-1~22.04.3_amd64.deb ...
+Unpacking libpython3.10:amd64 (3.10.12-1~22.04.3) ...
+Selecting previously unselected package libsodium23:amd64.
+Preparing to unpack .../12-libsodium23_1.0.18-1build2_amd64.deb ...
+Unpacking libsodium23:amd64 (1.0.18-1build2) ...
+Selecting previously unselected package vim-runtime.
+Preparing to unpack .../13-vim-runtime_2%3a8.2.3995-1ubuntu2.17_all.deb ...
+Adding 'diversion of /usr/share/vim/vim82/doc/help.txt to /usr/share/vim/vim82/doc/help.txt.vim-tiny by vim-runtime'
+Adding 'diversion of /usr/share/vim/vim82/doc/tags to /usr/share/vim/vim82/doc/tags.vim-tiny by vim-runtime'
+Unpacking vim-runtime (2:8.2.3995-1ubuntu2.17) ...
+Selecting previously unselected package vim.
+Preparing to unpack .../14-vim_2%3a8.2.3995-1ubuntu2.17_amd64.deb ...
+Unpacking vim (2:8.2.3995-1ubuntu2.17) ...
+Setting up libexpat1:amd64 (2.4.7-1ubuntu0.3) ...
+Setting up media-types (7.0.0) ...
+Setting up libsodium23:amd64 (1.0.18-1build2) ...
+Setting up libgpm2:amd64 (1.20.7-10build1) ...
+Setting up libsqlite3-0:amd64 (3.37.2-2ubuntu0.3) ...
+Setting up xxd (2:8.2.3995-1ubuntu2.17) ...
+Setting up vim-common (2:8.2.3995-1ubuntu2.17) ...
+Setting up libpython3.10-minimal:amd64 (3.10.12-1~22.04.3) ...
+Setting up libmpdec3:amd64 (2.5.1-2build2) ...
+Setting up vim-runtime (2:8.2.3995-1ubuntu2.17) ...
+Setting up readline-common (8.1.2-1) ...
+Setting up libreadline8:amd64 (8.1.2-1) ...
+Setting up libpython3.10-stdlib:amd64 (3.10.12-1~22.04.3) ...
+Setting up libpython3.10:amd64 (3.10.12-1~22.04.3) ...
+Setting up vim (2:8.2.3995-1ubuntu2.17) ...
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vim (vim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vimdiff (vimdiff) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rvim (rvim) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/rview (rview) in auto mode
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/vi (vi) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/da/man1/vi.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man1/vi.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man1/vi.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man1/vi.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man1/vi.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man1/vi.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ru/man1/vi.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/vi.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group vi) doesn't exist
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/view (view) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/da/man1/view.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man1/view.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man1/view.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man1/view.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man1/view.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man1/view.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ru/man1/view.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/view.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group view) doesn't exist
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/ex (ex) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/da/man1/ex.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man1/ex.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man1/ex.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man1/ex.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man1/ex.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man1/ex.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ru/man1/ex.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/ex.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group ex) doesn't exist
+update-alternatives: using /usr/bin/vim.basic to provide /usr/bin/editor (editor) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/da/man1/editor.1.gz because associated file /usr/share/man/da/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/de/man1/editor.1.gz because associated file /usr/share/man/de/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/fr/man1/editor.1.gz because associated file /usr/share/man/fr/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/it/man1/editor.1.gz because associated file /usr/share/man/it/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ja/man1/editor.1.gz because associated file /usr/share/man/ja/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/pl/man1/editor.1.gz because associated file /usr/share/man/pl/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/ru/man1/editor.1.gz because associated file /usr/share/man/ru/man1/vim.1.gz (of link group editor) doesn't exist
+update-alternatives: warning: skip creation of /usr/share/man/man1/editor.1.gz because associated file /usr/share/man/man1/vim.1.gz (of link group editor) doesn't exist
+Processing triggers for libc-bin (2.35-0ubuntu3.8) ...
+root@1907891995c1:/Python3# apt install python3
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libpython3-stdlib python3-minimal python3.10 python3.10-minimal
+Suggested packages:
+  python3-doc python3-tk python3-venv python3.10-venv python3.10-doc binutils binfmt-support
+The following NEW packages will be installed:
+  libpython3-stdlib python3 python3-minimal python3.10 python3.10-minimal
+0 upgraded, 5 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2804 kB of archives.
+After this operation, 6945 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10-minimal amd64 3.10.12-1~22.04.3 [2242 kB]
+Get:2 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-minimal amd64 3.10.6-1~22.04 [24.3 kB]
+Get:3 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3.10 amd64 3.10.12-1~22.04.3 [508 kB]
+Get:4 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 libpython3-stdlib amd64 3.10.6-1~22.04 [6910 B]
+Get:5 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3 amd64 3.10.6-1~22.04 [22.8 kB]
+Fetched 2804 kB in 3s (940 kB/s)   
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package python3.10-minimal.
+(Reading database ... 7985 files and directories currently installed.)
+Preparing to unpack .../python3.10-minimal_3.10.12-1~22.04.3_amd64.deb ...
+Unpacking python3.10-minimal (3.10.12-1~22.04.3) ...
+Setting up python3.10-minimal (3.10.12-1~22.04.3) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... 7996 files and directories currently installed.)
+Preparing to unpack .../python3-minimal_3.10.6-1~22.04_amd64.deb ...
+Unpacking python3-minimal (3.10.6-1~22.04) ...
+Selecting previously unselected package python3.10.
+Preparing to unpack .../python3.10_3.10.12-1~22.04.3_amd64.deb ...
+Unpacking python3.10 (3.10.12-1~22.04.3) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../libpython3-stdlib_3.10.6-1~22.04_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.10.6-1~22.04) ...
+Setting up python3-minimal (3.10.6-1~22.04) ...
+Selecting previously unselected package python3.
+(Reading database ... 8041 files and directories currently installed.)
+Preparing to unpack .../python3_3.10.6-1~22.04_amd64.deb ...
+Unpacking python3 (3.10.6-1~22.04) ...
+Setting up python3.10 (3.10.12-1~22.04.3) ...
+Setting up libpython3-stdlib:amd64 (3.10.6-1~22.04) ...
+Setting up python3 (3.10.6-1~22.04) ...
+running python rtupdate hooks for python3.10...
+running python post-rtupdate hooks for python3.10...
+root@1907891995c1:/Python3# vim hello.py
+root@1907891995c1:/Python3# python3 hello.py
+Hello Pranali
+root@1907891995c1:/Python3# 
+root@1907891995c1:/Python3# 
+root@1907891995c1:/Python3# 
+root@1907891995c1:/Python3# 
+root@1907891995c1:/Python3# 
+root@1907891995c1:/Python3# exit
+exit
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ 
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ 
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker container ls
+CONTAINER ID   IMAGE                   COMMAND   CREATED          STATUS          PORTS     NAMES
+1907891995c1   mynode:pranali_nodejs   "bash"    29 minutes ago   Up 27 minutes             laughing_maxwell
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker commit 1907891995c1 mynode:pranali_nodejs:pranali_python3
+invalid reference format
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker commit 1907891995c1 mynode:pranali_python3
+sha256:156594419fc22830746494a0edc3a2eeea1cfa81b24559e39faa88922876ee34
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker tag mynode:pranali_python3 pranalimaraskolhe/ubuntu:Python3_hello
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker images
+REPOSITORY                 TAG                IMAGE ID       CREATED             SIZE
+mynode                     pranali_python3    156594419fc2   2 minutes ago       287MB
+pranalimaraskolhe/ubuntu   Python3_hello      156594419fc2   2 minutes ago       287MB
+<none>                     <none>             25f25944d9f1   22 minutes ago      215MB
+mynode                     pranali_nodejs     702ee6253946   About an hour ago   215MB
+mypython                   hello              d57ce9ce2908   45 hours ago        50MB
+ubuntu                     vim                49a6d3ddc7f8   47 hours ago        161MB
+pranalimaraskolhe/ubuntu   vim                49a6d3ddc7f8   47 hours ago        161MB
+ubuntu                     nano               ba7bc79d0969   47 hours ago        161MB
+ubuntu                     pranali240122.04   d01122d1f155   2 days ago          161MB
+ubuntu                     diot240322.04      809654faf4fa   2 days ago          132MB
+ubuntu                     latest             35a88802559d   3 weeks ago         78.1MB
+<none>                     <none>             37984cb52039   4 weeks ago         77.9MB
+hello-world                latest             d2c94e258dcb   14 months ago       13.3kB
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ ls
+Dockerfile
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ docker login
+Authenticating with existing credentials...
+Login did not succeed, error: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.45/auth": dial unix /var/run/docker.sock: connect: permission denied
+Log in with your Docker ID or email address to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com/ to create one.
+You can log in with your password or a Personal Access Token (PAT). Using a limited-scope PAT grants better security and is required for organizations using SSO. Learn more at https://docs.docker.com/go/access-tokens/
+
+Username 
+Password: 
+WARNING! Your password will be stored unencrypted in /home/diot/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ docker login
+Authenticating with existing credentials...
+Login did not succeed, error: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.45/auth": dial unix /var/run/docker.sock: connect: permission denied
+Log in with your Docker ID or email address to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com/ to create one.
+You can log in with your password or a Personal Access Token (PAT). Using a limited-scope PAT grants better security and is required for organizations using SSO. Learn more at https://docs.docker.com/go/access-tokens/
+
+Username (pranalimaraskolhe): pranalimaraskolhe
+Password: 
+WARNING! Your password will be stored unencrypted in /home/diot/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ sudo docker push pranalimaraskolhe/ubuntu:Python3_hello
+The push refers to repository [docker.io/pranalimaraskolhe/ubuntu]
+f35cc5968c5b: Pushed 
+62b022f2df40: Pushed 
+931b7ff0cb6f: Mounted from library/ubuntu 
+Python3_hello: digest: sha256:7f05cf46d671a053ee2a97341b76aae69544ca3cc4fb1f33863ba0768a3e1f62 size: 953
+diot@diot-HP-ProDesk-600-G5-PCI-MT:~/Desktop/Docker/App-04$ 
+
